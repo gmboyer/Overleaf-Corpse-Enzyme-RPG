@@ -11,13 +11,151 @@
 \begin{document}
 \fontfamily{ppl}\selectfont % Set text font
 
+% Project title
+\title{Corpse Enzyme RPG}
+
 % Your content goes here
 
 % Comment this out if you're using the article class.
-\chapter{Chapter 1: The Dark \LaTeX}
+\chapter{Corpse Enzyme: Tabletop RPG}
+\section{Characters}
+\subsection{Attributes (dStats)}
+Character attributes are represented by polyhedral dice, with better stats having higher die types. Attributes are collectively referred to as dStats.
+\begin{itemize}
+\item \textbf{Strength (dStr)}: raw strength, fitness, poison and disease resistance.
+\item \textbf{Dexterity (dDex)}: agility, hand-eye-coordination, balance.
+\item \textbf{Intelligence (dInt)}: mentality, reasoning, tactical thinking, perception.
+\item \textbf{Spirit (dSpr)}: morale, personality, willpower.
+\item \textbf{Charisma (dCha)}: social skills, attractiveness, charm.
+\item \textbf{Luck (dLuck)}: karma, dumb luck, fate.
+\end{itemize}
 
-\section{Main Section}
-\lipsum[1] % filler text
+Each dStat begins at a paltry d4 except for dLuck, which is always a d6. New characters have 4 points to distribute among dStr, dDex, dInt, and dSpr as they choose. Each point increases the dStat by one die step.
+\par Nonplayer characters and monsters do not have dLuck unless the GM deems them important enough.
+
+\subsection{Skills}
+Characters start with one of the following skills:
+\textbf{Athletics}, \textbf{Stealth}, \textbf{Thievery}, \textbf{Acrobatics}, \textbf{Crafting} (choose a craft), or \textbf{Survival}.
+\par If a character possesses a skill, a test result of 4 or below counts as a partial success, but with a greater drawback or tradeoff.
+
+\subsection{Special Abilities}
+New characters choose two abilities:
+\newline
+\par \textbf{Martial Artist/Brawler:} Unarmed attacks Shift Left 1.
+\par \textbf{Charismatic/Attractive:} +1 die step to dSpr in social situations. Stackable.
+\par \textbf{Magic-user:} cast spells. Raw magical power can be used as a weapon to make melee or ranged attacks. Choose an element or flavor to represent this raw power.
+\par \textbf{Evoker:} Requires Magic-User. Lose the ability to cast spells, but gain Shift Out 2 when using raw magic as a weapon.
+\par \textbf{Weapon of Choice:} pick a weapon type (daggers, longswords, etc.). Gain Shift Left 1 or Shift Right 1 (choose now) whenever using a weapon of that type.
+\par \textbf{Spell sniper}: ranged magic dAttack scales with dInt up to d10 when wielding a magic staff, wand, rod, etc. in your hand.
+\par \textbf{Healer:} test dInt (normal medicine) or dSpr (mystic healing) at the end of 3d6 minutes to heal 1 wound on yourself or another. No effect on a normal failure, but a critical failure means the patient gains another wound. The healer must be equipped with healing supplies (bandages, herbs, medical tools, etc.). Retrying is usually not possible unless the situation changes drastically (wound worsens/festers, new treatment is learned, etc.).
+\par \textbf{Magical defenses:} Defense range uses dInt or dSpr (choose 1) instead of dStr or dDex (choose 1). This can be taken twice such that dStr and dDex are both replaced. Requires Magic-User.
+\par \textbf{Twin-weapon fighter:} Gain Shift Left 1 or Shift Right 1 (choose one) when dual-wielding. This can be used to partially cancel out the 'Shift Center' for dual-wielding.
+\par \textbf{Leftie:} dAttack of weapon in off hand does not have -1 die type penalty when dual-wielding.
+\par \textbf{Weapon finesse}: Swap the dStr and dDex scaling values for a single melee weapon.
+\par \textbf{Skilled:} pick two additional skills
+\par \textbf{Sneak attack:}  +2 die steps to dAttack when striking an unaware foe.
+\par \textbf{Assassin:} treat a normal hit like a critical hit when striking an unaware foe.
+\par \textbf{Awareness:} +2 die steps to dInt when testing perception (searching, spotting, listening, etc.).
+\par \textbf{Dual-wielding master:} dual-weild any weapon so long as your dStats exceeds the scaling values by at least one step. e.g. need at least d10 strength and d8 dexterity to dual-wield longswords, or at least d12+1 strength and d8 dexterity to dual-wield greatswords.
+\par \textbf{Rapid reload:} test dDex to load and fire a crossbow.
+\par \textbf{Oversized weapon fighter:} treat two-handed melee weapons as adaptable weapons, so long as your dStr meets or exceeds the weapon's listed dStr scaling value.
+\par \textbf{Illusionist:} use trickery or magic to create simple illusions. Test dInt against the illusionist's dCha or dMagic to disbelieve the illusion.
+\par \textbf{Exorcist:} The exorcist has the ability to turn supernatural creatures considered the antithesis to the exorcist's ideals or beliefs. The exorcist tests dSpr against the defense of the creature. A hit means the creature is shaken (cowed and kept at bay). A critical hit means the creature is shaken and forced to flee.
+\par \textbf{Improved Exorcism:} Requires Exorcist ability. The exorcist may take a -2 penalty to the exorcism test to apply it to all unholy supernatural creatures nearby.
+\par \textbf{Slayer of the Unholy:} Requires the Exorcist ability. A hit during an exorcism test causes the supernatural creature to flee. A critical hit destroys or banishes the creature to its home dimension.
+\par \textbf{Berserk.} If you are Shaken or Wounded, you fly into a rage. While berserking, your attack rolls use 1d20 (instead of 3d6 or 2d6) and all attack rolls against you use 1d20.
+
+\subsection{Magic}
+Magic-users have dMagic for casting spells, separated into melee and ranged.
+\par Wearing armor or carrying a shield decreases dMagic with magic by 1 die type apiece (minimum d4).
+
+\section{Mechanics and Dice}
+\subsection{Core mechanic}
+When attempting tasks with a risk of failure, roll the most relevant dStat along with dLuck. Compare the dice and take the higher value as the result. If either of the dice rolls its maximum value, add the values of the dice together instead of comparing them.
+\newline
+The result of the roll determines degree of success:
+\begin{itemize}
+\item \textbf{0 or below}: critical failure.
+\item \textbf{1-4}: fail forward.
+\item \textbf{At least 5}: partial success.
+\item \textbf{At least 9}: full success.
+\end{itemize}
+
+Remember where full and partial successes start with the phrase \textit{working 9 to 5}
+\header{Testing dStat}
+\begin{dndtable}
+   	\textbf{Roll}  & \textbf{Result} \\
+   	0 or below  & Critical failure \\
+   	1 to 4  & Fail forward \\
+   	At least 5  & Partial success \\
+    At least 9  & Full success
+\end{dndtable}
+
+
+\subsection{Die Steps}
+Die steps proceed such that d4 advances to d6, then to d8, d10, d12, d12+1, d12+2, d12+3 and so on in that order.
+
+\subsection{Combat}
+\subsubsection{Initiative}
+Before combat, test dDex to determine \textbf{Initiative}. The combatant who scored the highest acts first. The number each combatant rolled during initiative is also their \textbf{Lucky Number}.
+
+\subsubsection{The Combat Table}
+Attacks, defense, damage, critical hits, and other dangers are handled on the \textbf{Combat Table}, which ranges from 0 to 21. Each entry on the table has a value for damage dealt, as well as a threat and a critical threat posed by the attack.
+
+Standard attacks are found near the \textbf{Center} (entries 10 and 11) of the Combat Table. Hard-hitting attacks with devastating consequences are found near the \textbf{Right} of the table. Tricky and opportunistic attacks are found at the \textbf{Left} side of the table.
+
+\subsubsection{Defense}
+A character has \textbf{Defense} against attacks made against them on the Combat Table in a range that begins at
+\begin{center} 11 - (dDex/2) - Dodge Bonus \end{center}
+\noindent and ends at
+\begin{center} 10 + dStr/2 + Armor Bonus \end{center}
+For instance, a character with d6 Dexterity, d8 Strength and an armor bonus of +2 will have a Defense of 8-16 and may reduce incoming damage by 1 from any attack that falls in this range.
+
+\subsubsection{Attacking}
+To make an attack, an attacker makes an \textbf{Attack Roll}, typically by rolling 3d6, taking the total, and then applying a \textbf{Shift} determined by their weapons and abilities.
+
+The outcome of an attack is determined by the Combat Table. The table entry corresponding to the result of the Attack Roll will list the \textbf{Damage} dealt and the \textbf{Threat} the target must face from the attack.
+
+\subsubsection{Shift}
+Some weapons and abilities will \textbf{Shift}, or nudge, the Attack Roll one way or another on the Combat Table indicated by a listed magnitude. \textbf{Shift Left} and \textbf{Shift Right} will nudge all attacks rolls on the Combat Table left and right, respectively.
+
+Weapons and abilities that have the property \textbf{Shift Center} will nudge an Attack Roll closer to the center of the Combat Table (10 and 11).
+
+Weapons and abilities that have the property \textbf{Shift Out} will nudge an Attack Roll away from the center of the Combat Table. This property tends to make attacks more potent overall.
+
+If weapons and abilities grant additive or opposing Shift, they will add or cancel according to their magnitude; for instance a character with \textit{Shift Out 1} and \textit{Shift Left 2} will effectively have \textit{Shift Left 3} with Attack Rolls below 10 and \textit{Shift Left 1} with Attack Rolls above 11.
+
+\subsubsection{Damage}
+The amount of damage inflicted by an attack is represented by the number of dots listed at the top of each entry in the Combat Table.
+
+\textbf{Reducing Damage.} If the result of an Attack Roll falls within the target's Defense Range, damage is automatically reduced by 1. It is further reduced by 1 if the target scores a full success when resisting the attack's Threat.
+
+\subsubsection{Shaken}
+\textbf{Becoming Shaken.} If a character is dealt damage, the first point makes them \textbf{Shaken} (narratively, this means the character is thrown off-guard, reeling, rattled, shell-shocked, or the like).
+
+\textbf{Effect.} Attacks made against a Shaken character use a roll of 2d10 instead of 3d6.
+
+\textbf{Recovery.} A character may attempt to recover from being Shaken once per turn by testing their dSpr. Success means the character has recovered. Failure means the character remains Shaken.
+
+\subsubsection{Wounds}
+Each point of damage dealt to a Shaken character causes a \textbf{Wound}. A wounded character takes a -2 penalty to all of their dStat tests. If a character accumulates a number of wounds exceeding their dStr/2, they are at \textbf{Death's Door} and all attack rolls made against them use 1d20.
+
+\subsection{Lucky Numbers}
+The value a character rolls during their initiative is their \textbf{Lucky Number} that they keep until the combat ends. A character who scores this number during an attack may choose to deal a critical threat instead of a normal one. It may behoove players to remember their lucky number so that they can claim this opportunity!
+
+\section{Miscellaneous}
+\subsection{Poison, disease, and radiation}
+If a character is poisoned, usually by failing an initial dStr test vs. poison, roll on the hit table in time increments dictated by the strength of the poison and ignore combat-specific effects. If the table result would/could cause injury, gain an injury due to poison instead. On a 0 or below, the character dies.
+\newline
+\par \textbf{Weak:} roll on hit table once per hour
+\par \textbf{Moderate:} roll on hit table once per minute
+\par \textbf{Strong:} roll on hit table once per round
+\newline
+\par \textbf{Short duration:} lasts 2d4 rounds
+\par \textbf{Moderate duration:} lasts 2d4 minutes
+\par \textbf{Long-lasting:} lasts 2d4 hours
+\newline
+\par Non-damaging poisons may have different effects. E.g. 'test dStr or be paralyzed for 2d4 rounds'
 
 \subsection{Fun with boxes}
 \subsubsection{Even more fun!}
