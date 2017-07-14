@@ -6,6 +6,8 @@
 \usepackage[bg-letter]{dnd} % Options: bg-a4, bg-letter, bg-full, bg-print, bg-none.
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{mathabx}
+\usepackage{tikz}
 
 % Start document
 \begin{document}
@@ -15,12 +17,21 @@
 \title{Corpse Enzyme RPG}
 
 % Your content goes here
+\newcommand{\damage}[0]{\tikz\draw[red,fill=red] (0,0) circle (.5ex); }
+
+\newcommand{\shiftleft}[0]{\color{violet}\Large$\boldsymbol\blacktriangleleft$\normalsize\color{black} }
+
+\newcommand{\shiftright}[0]{\color{orange}\Large$\boldsymbol\blacktriangleright$\normalsize\color{black} }
+
+\newcommand{\shiftcenter}[0]{\color{red}\Large$\boldsymbol\blacktriangleright|\boldsymbol\blacktriangleleft$\normalsize\color{black} }
+
+\newcommand{\shiftout}[0]{\shiftleft$|$\shiftright }
 
 % Comment this out if you're using the article class.
 \chapter{Corpse Enzyme: Tabletop RPG}
 \section{Characters}
-\subsection{Attributes (dStats)}
-Character attributes are represented by polyhedral dice, with better stats having higher die types. Attributes are collectively referred to as dStats.
+\subsection{Attributes}
+Character attributes are represented by polyhedral dice, with better stats having higher die types. Attributes are collectively called \textbf{dStats}.
 \begin{itemize}
 \item \textbf{Strength (dStr)}: raw strength, fitness, poison and disease resistance.
 \item \textbf{Dexterity (dDex)}: agility, hand-eye-coordination, balance.
@@ -38,32 +49,55 @@ Characters start with one of the following skills:
 \textbf{Athletics}, \textbf{Stealth}, \textbf{Thievery}, \textbf{Acrobatics}, \textbf{Crafting} (choose a craft), or \textbf{Survival}.
 \par If a character possesses a skill, a test result of 4 or below counts as a partial success, but with a greater drawback or tradeoff.
 
+\subsection{Character Classes}
+\par \textbf{Custom Class.} Start with one skill and two special abilities of your choice.
+\par \textbf{Barbarian.} Start with the Athletics skill, and the special abilities Berserk and Fighting Style (Powerful Greatsword \shiftright\shiftright). Equipment
+\par \textbf{Fighter.} Start with the Athletics skill, Berserk, and Fighting Style (Well-Rounded \shiftout). Equipment
+\par \textbf{Cleric.}
+\par \textbf{Rogue.}
+\par \textbf{Wizard.}
+\par \textbf{Sorcerer.}
+
+
 \subsection{Special Abilities}
-New characters choose two abilities:
-\newline
-\par \textbf{Martial Artist/Brawler:} Unarmed attacks Shift Left 1.
-\par \textbf{Charismatic/Attractive:} +1 die step to dSpr in social situations. Stackable.
-\par \textbf{Magic-user:} cast spells. Raw magical power can be used as a weapon to make melee or ranged attacks. Choose an element or flavor to represent this raw power.
-\par \textbf{Evoker:} Requires Magic-User. Lose the ability to cast spells, but gain Shift Out 2 when using raw magic as a weapon.
-\par \textbf{Weapon of Choice:} pick a weapon type (daggers, longswords, etc.). Gain Shift Left 1 or Shift Right 1 (choose now) whenever using a weapon of that type.
-\par \textbf{Spell sniper}: ranged magic dAttack scales with dInt up to d10 when wielding a magic staff, wand, rod, etc. in your hand.
-\par \textbf{Healer:} test dInt (normal medicine) or dSpr (mystic healing) at the end of 3d6 minutes to heal 1 wound on yourself or another. No effect on a normal failure, but a critical failure means the patient gains another wound. The healer must be equipped with healing supplies (bandages, herbs, medical tools, etc.). Retrying is usually not possible unless the situation changes drastically (wound worsens/festers, new treatment is learned, etc.).
-\par \textbf{Magical defenses:} Defense range uses dInt or dSpr (choose 1) instead of dStr or dDex (choose 1). This can be taken twice such that dStr and dDex are both replaced. Requires Magic-User.
-\par \textbf{Twin-weapon fighter:} Gain Shift Left 1 or Shift Right 1 (choose one) when dual-wielding. This can be used to partially cancel out the 'Shift Center' for dual-wielding.
+\subsubsection{Combat Abilities}
+\par \textbf{Fighting Style.} You are trained in a fighting style. The name and flavor of this style is up to you. Pick an effect:
+\begin{itemize}
+\item \textbf{Well-Rounded.} You are adaptable and know how to handle yourself in a variety of combat situations. Gain (\shiftout) when making any attack.
+\item \textbf{Defensive.} Increase your Defense Range by 1 to left and right, or by 2 in either direction. Your attacks with any weapon gain (\shiftcenter).
+\item \textbf{Finesse.} Your strikes are fast and precise. Gain (\shiftleft\shiftleft) when making attacks with one weapon type of your choice.
+\item \textbf{Powerful.} Your attacks hit hard. Gain (\shiftright\shiftright) when making attacks with one weapon type of your choice.
+\end{itemize}
+
+\par \textbf{Weapon finesse.} Choose a single type of weapon with a shift associated with it (e.g. rapiers). When you use this type of weapon, Shift in the reverse direction.
+\par \textbf{Sneak Attack.} Your attacks deal 1 extra damage if the result of the attack roll is 4 or less.
+\par \textbf{Martial Artist/Brawler.} Unarmed attacks have (\shiftleft) or (\shiftright) instead of (\shiftcenter), your choice.
+
+\subsubsection{Magical Abilities}
+
+\par \textbf{Charismatic/Attractive.} +1 die step to dSpr in social situations. Stackable.
+\par \textbf{Magic-user.} cast spells. Raw magical power can be used as a weapon to make melee or ranged attacks. Choose an element or flavor to represent this raw power.
+\par \textbf{Evoker.} Requires Magic-User. Lose the ability to cast spells, but gain (\shiftout) when using raw magic as a weapon.
+\par \textbf{Channeler.} Requires Magic-User. Raw magic gains (\shiftright) when channeled through a two-handed staff, or (\shiftleft) when channeled through a wand.
+\par \textbf{Healer.} test dInt (normal medicine) or dSpr (mystic healing) at the end of 3d6 minutes to heal 1 wound on yourself or another. No effect on a normal failure, but a critical failure means the patient gains another wound. The healer must be equipped with healing supplies (bandages, herbs, medical tools, etc.). Retrying is usually not possible unless the situation changes drastically (wound worsens/festers, new treatment is learned, etc.).
+\par \textbf{Magical defenses.} Defense range uses dInt or dSpr (choose 1) instead of dStr or dDex (choose 1). This can be taken twice such that dStr and dDex are both replaced. Requires Magic-User.
+\par \textbf{Twin-weapon fighter.} Gain Shift Left 1 or Shift Right 1 (choose one) when dual-wielding. This can be used to partially cancel out the 'Shift Center' for dual-wielding.
 \par \textbf{Leftie:} dAttack of weapon in off hand does not have -1 die type penalty when dual-wielding.
-\par \textbf{Weapon finesse}: Swap the dStr and dDex scaling values for a single melee weapon.
-\par \textbf{Skilled:} pick two additional skills
-\par \textbf{Sneak attack:}  +2 die steps to dAttack when striking an unaware foe.
-\par \textbf{Assassin:} treat a normal hit like a critical hit when striking an unaware foe.
-\par \textbf{Awareness:} +2 die steps to dInt when testing perception (searching, spotting, listening, etc.).
-\par \textbf{Dual-wielding master:} dual-weild any weapon so long as your dStats exceeds the scaling values by at least one step. e.g. need at least d10 strength and d8 dexterity to dual-wield longswords, or at least d12+1 strength and d8 dexterity to dual-wield greatswords.
-\par \textbf{Rapid reload:} test dDex to load and fire a crossbow.
-\par \textbf{Oversized weapon fighter:} treat two-handed melee weapons as adaptable weapons, so long as your dStr meets or exceeds the weapon's listed dStr scaling value.
-\par \textbf{Illusionist:} use trickery or magic to create simple illusions. Test dInt against the illusionist's dCha or dMagic to disbelieve the illusion.
+\par \textbf{Skilled.} pick two additional skills
+\par \textbf{Sneak attack.}  +2 die steps to dAttack when striking an unaware foe.
+\par \textbf{Assassin.} treat a normal hit like a critical hit when striking an unaware foe.
+\par \textbf{Awareness.} +2 die steps to dInt when testing perception (searching, spotting, listening, etc.).
+\par \textbf{Dual-wielding master.} dual-wield any weapon so long as your dStats exceeds the scaling values by at least one step. e.g. need at least d10 strength and d8 dexterity to dual-wield longswords, or at least d12+1 strength and d8 dexterity to dual-wield greatswords.
+\par \textbf{Rapid reload.} test dDex to load and fire a crossbow.
+\par \textbf{Oversized weapon fighter.} treat two-handed melee weapons as adaptable weapons, so long as your dStr meets or exceeds the weapon's listed dStr scaling value.
+\par \textbf{Illusionist.} use trickery or magic to create simple illusions. Test dInt against the illusionist's dCha or dMagic to disbelieve the illusion.
 \par \textbf{Exorcist:} The exorcist has the ability to turn supernatural creatures considered the antithesis to the exorcist's ideals or beliefs. The exorcist tests dSpr against the defense of the creature. A hit means the creature is shaken (cowed and kept at bay). A critical hit means the creature is shaken and forced to flee.
 \par \textbf{Improved Exorcism:} Requires Exorcist ability. The exorcist may take a -2 penalty to the exorcism test to apply it to all unholy supernatural creatures nearby.
 \par \textbf{Slayer of the Unholy:} Requires the Exorcist ability. A hit during an exorcism test causes the supernatural creature to flee. A critical hit destroys or banishes the creature to its home dimension.
 \par \textbf{Berserk.} If you are Shaken or Wounded, you fly into a rage. While berserking, your attack rolls use 1d20 (instead of 3d6 or 2d6) and all attack rolls against you use 1d20.
+
+\subsubsection{Miscellaneous Abilities}
+\subsection{Equipment}
 
 \subsection{Magic}
 Magic-users have dMagic for casting spells, separated into melee and ranged.
@@ -121,11 +155,11 @@ Some weapons and abilities will \textbf{Shift}, or nudge, the Attack Roll one wa
 
 Weapons and abilities that have the property \textbf{Shift Center} will nudge an Attack Roll closer to the center of the Combat Table (10 and 11).
 
-Weapons and abilities that have the property \textbf{Shift Out} will nudge an Attack Roll away from the center of the Combat Table. This property tends to make attacks more potent overall.
+\textbf{Shift Out} (\shiftout). Attack rolls are nudged away from the center of the Combat Table. This property tends to make attacks more potent overall.
 
-If weapons and abilities grant additive or opposing Shift, they will add or cancel according to their magnitude; for instance a character with \textit{Shift Out 1} and \textit{Shift Left 2} will effectively have \textit{Shift Left 3} with Attack Rolls below 10 and \textit{Shift Left 1} with Attack Rolls above 11.
+If weapons and abilities grant additive or opposing Shift, they will add or cancel according to their magnitude; for instance a character with (\shiftout) and (\shiftleft\shiftleft) will effectively have (\shiftleft\shiftleft\shiftleft | \shiftleft).
 
-\begin{commentbox}{Variant: GM never rolls dice}
+\begin{commentbox}{Variant: The GM never rolls dice}
 In this variant, the GM may choose to have players roll to \textit{react} to actions of NPCs and monsters, rather than have NPCs and monsters roll to \textit{act}. The GM may also choose to make rolls only for important NPCs or to resolve especially dramatic situations.
 \par \textbf{Static attributes.} Monsters and NPCs have static attributes equal their dStat/2. A PC wins an opposed test if they meets or exceed this number.
 \par \textbf{Defense rolls.} Whenever a PC is the target of an attack by an NPC or monster, the player makes a Defense Roll (rather than the attacker making an Attack Roll). Essentially, the player rolls 3d6, 2d10, or 1d20 if the PC is not Shaken, Shaken, or at Death's Door, respectively, and the GM applies the attacker's Shift to the result. This way, the player rolls for making and defending against attacks.
@@ -134,7 +168,7 @@ In this variant, the GM may choose to have players roll to \textit{react} to act
 \subsubsection{Damage}
 The amount of damage inflicted by an attack is represented by the number of dots listed at the top of each entry in the Combat Table.
 
-\textbf{Reducing Damage.} If the result of an Attack Roll falls within the target's Defense Range, damage is automatically reduced by 1. It is further reduced by 1 if the target scores a full success when resisting the attack's Threat.
+\textbf{Reducing Damage.} If the result of an Attack Roll falls within the target's Defense Range, damage is automatically reduced by \damage. It is further reduced by 1 if the target scores a full success when resisting the attack's Threat.
 
 \subsubsection{Shaken}
 \textbf{Becoming Shaken.} If a character is dealt damage, the first point makes them \textbf{Shaken} (narratively, this means the character is thrown off-guard, reeling, rattled, shell-shocked, or the like).
